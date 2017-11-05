@@ -15,7 +15,6 @@ public class Runner {
         FruitMachine fruitMachine = new FruitMachine(200, 0, 10, 3);
         Game game = new Game(fruitMachine, player);
 
-
             game.playGame();
     }
 }

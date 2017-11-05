@@ -39,10 +39,7 @@ public class GameTest {
 
     @Test
     public void cantPlay(){
-        Player player1 = new Player("Louise", 2);
-        FruitMachine fruitMachine1 = new FruitMachine(50, 0, 10, 3);
-        Game game1 = new Game(fruitMachine1, player1);
-        assertEquals(false, game1.canPlay());
+      assertEquals(false, game.cantPlay());
 
     }
 
