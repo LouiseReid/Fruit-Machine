@@ -13,13 +13,15 @@ import static android.R.attr.value;
 public class FruitMachine {
 
     private int bank;
+    private int winnings;
     private int price;
     private int noOfWheels;
     private ArrayList<Wheel> row;
 
 
-    public FruitMachine(int bank, int price, int noOfWheels) {
+    public FruitMachine(int bank, int winnings, int price, int noOfWheels) {
         this.bank = bank;
+        this.winnings = winnings;
         this.price = price;
         this.noOfWheels = noOfWheels;
         this.row = new ArrayList<>();
@@ -30,6 +32,9 @@ public class FruitMachine {
         return bank;
     }
 
+    public void setBank(int bank) {
+        this.bank = bank;
+    }
 
     public int getPrice() {
         return price;
@@ -37,6 +42,14 @@ public class FruitMachine {
 
     public int getNoOfWheels() {
         return noOfWheels;
+    }
+
+    public int getWinnings() {
+        return winnings;
+    }
+
+    public void setWinnings(int winnings) {
+        this.winnings = winnings;
     }
 
     private void generateMachine() {
@@ -70,11 +83,17 @@ public class FruitMachine {
             for(Symbols symbols : line){
                 winnings += symbols.getValue();
                 if (firstWheel == Symbols.STAR){
-                    winnings += (bank / line.size()) - Symbols.STAR.getValue();
+                    winnings = bank;
+
                 }
+
+            }
+            if (firstWheel == Symbols.STAR) {
+                System.out.println("DING! DING! DING! JACKPOT!");
             }
         }
-        return winnings;
+        setWinnings(winnings);
+        return this.getWinnings();
     }
 
 

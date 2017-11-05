@@ -23,7 +23,7 @@ public class FruitMachineTest {
 
     @Before
     public void before(){
-        fruitMachine = new FruitMachine(1000, 10, 5);
+        fruitMachine = new FruitMachine(1000, 0, 10, 5);
     }
 
     @Test
@@ -77,13 +77,17 @@ public class FruitMachineTest {
         result.add(CHERRY);
         result.add(CHERRY);
         result.add(CHERRY);
+        result.add(CHERRY);
         fruitMachine.payout(fruitMachine.spin(result));
-        assertEquals(997, fruitMachine.getBank());
+        assertEquals(996, fruitMachine.getBank());
     }
 
     @Test
     public void canJackpot(){
         ArrayList<Symbols> result = new ArrayList<>();
+        result.add(STAR);
+        result.add(STAR);
+        result.add(STAR);
         result.add(STAR);
         result.add(STAR);
         result.add(STAR);
