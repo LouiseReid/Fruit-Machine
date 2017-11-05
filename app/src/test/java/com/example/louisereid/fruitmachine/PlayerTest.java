@@ -24,9 +24,5 @@ public class PlayerTest {
         assertEquals(90, player.getPurse());
     }
 
-    @Test
-    public void purseIncreases(){
-        player.win(50);
-        assertEquals(150, player.getPurse());
-    }
+
 }

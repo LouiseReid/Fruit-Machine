@@ -34,8 +34,5 @@ public class Player {
 
     }
 
-    public void win(int winnings){
-        purse += winnings;
-    }
 
 }

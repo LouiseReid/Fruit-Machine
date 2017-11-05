@@ -95,11 +95,7 @@ public class FruitMachineTest {
         assertEquals(0, fruitMachine.getBank());
     }
 
-    @Test
-    public void canAcceptPayment(){
-        fruitMachine.acceptPayment(10);
-        assertEquals(1010, fruitMachine.getBank());
-    }
+
 
 
 }

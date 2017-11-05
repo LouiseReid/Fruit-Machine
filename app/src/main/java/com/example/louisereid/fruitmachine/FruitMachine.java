@@ -48,7 +48,7 @@ public class FruitMachine {
         return winnings;
     }
 
-    public void setWinnings(int winnings) {
+    private void setWinnings(int winnings) {
         this.winnings = winnings;
     }
 
@@ -101,9 +101,7 @@ public class FruitMachine {
         bank -= winnings;
     }
 
-    public void acceptPayment(int payment){
-        bank += payment;
-    }
+
 
 
 
