@@ -20,12 +20,27 @@ public class Game {
     }
 
     public void playGame() {
-        while (player.getPurse() > 0) {
+        while (player.getPurse() > -1) {
             if (canPlay()) {
             }
             if (cantPlay()) {
                 System.out.println("You do not have enough funds to play this game!");
-                break;
+                System.out.println("Would you like to topup? (5/10/20)");
+
+                Scanner scanner = new Scanner(System.in);
+                String topUp = scanner.nextLine();
+
+                if(topUp.equals("5"))
+                    topUp5();
+                if (topUp.equals("10"))
+                    topUp10();
+                if(topUp.equals("20"))
+                    topUp20();
+                if (topUp.equals("n")) {
+                    System.out.println("Okay thanks bye!");
+                    break;
+                }
+
             }
 
             insertMoney();
@@ -33,6 +48,7 @@ public class Game {
             ArrayList<Symbols> result = fruitMachine.resultOfSpin();
 
             try {
+                System.out.println();
                 for (int i = 0; i < fruitMachine.getNoOfWheels(); i++) {
                     System.out.println(result.get(i));
                     Thread.sleep(2000);
@@ -43,7 +59,7 @@ public class Game {
 
                 System.out.println("You have won: " + fruitMachine.getWinnings());
                 player.setPurse(player.getPurse() + fruitMachine.getWinnings());
-                System.out.println("You have " + player.getPurse() + " left");
+                System.out.println("You have " + player.getPurse() + " available");
                 System.out.println("Potential Jackpot winnings: " + fruitMachine.getBank());
                 Thread.sleep(3000);
                 System.out.println();
@@ -59,6 +75,8 @@ public class Game {
                         break;
                     }
                 }
+
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -78,6 +96,17 @@ public class Game {
             return player.getPurse() < fruitMachine.getPrice();
         }
 
+        public void topUp5(){
+            player.setPurse(player.getPurse() + TopUp.FIVE.value);
+        }
+
+        public void topUp10(){
+        player.setPurse(player.getPurse() + TopUp.TEN.value);
+        }
+
+        public void topUp20(){
+        player.setPurse(player.getPurse() + TopUp.TWENTY.value);
+        }
 
 
 

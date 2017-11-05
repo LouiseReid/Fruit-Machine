@@ -43,5 +43,22 @@ public class GameTest {
 
     }
 
+    @Test
+    public void canTopUpFive(){
+        game.topUp5();
+        assertEquals(25, player.getPurse());
+    }
+
+    @Test
+    public void canTopUpTen(){
+        game.topUp10();
+        assertEquals(30, player.getPurse());
+    }
+
+    @Test
+    public void canTopUpTwenty(){
+        game.topUp20();
+        assertEquals(40, player.getPurse());
+    }
 
 }

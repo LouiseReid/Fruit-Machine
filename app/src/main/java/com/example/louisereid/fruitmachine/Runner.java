@@ -11,8 +11,8 @@ public class Runner {
 
 
     public static void main(String[] args) {
-        Player player = new Player("Louise", 50);
-        FruitMachine fruitMachine = new FruitMachine(200, 0, 10, 3);
+        Player player = new Player("Louise", 0);
+        FruitMachine fruitMachine = new FruitMachine(200, 0, 5, 3);
         Game game = new Game(fruitMachine, player);
 
             game.playGame();
